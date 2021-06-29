@@ -47,7 +47,7 @@ def create(request):
         new_superhero.save()
         return HttpResponseRedirect(reverse('superheroesapp:index'))
     else:
-        return render(request, 'superheroes/create.html')
+        return render(request, 'superheroesapp/create.html')
 
 def delete(superhero_id):
     superhero_id.delete()
