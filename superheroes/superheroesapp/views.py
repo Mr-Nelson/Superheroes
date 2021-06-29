@@ -13,14 +13,14 @@ def index(request):
     return render(request, 'superheroesapp/index.html', context)
 
 def detail(request, superhero_id):
-    specific_superhero = Superhero.objects.filter(pk=superhero_id)
+    specific_superhero = Superhero.objects.get(pk=superhero_id)
     context = {
         'specific_superhero': specific_superhero
     }
     return render(request, 'superheroesapp/detail.html', context)
 
 def change(request, superhero_id):
-    specific_superhero = Superhero.objects.filter(pk=superhero_id)
+    specific_superhero = Superhero.objects.get(pk=superhero_id)
     context = {
         'specific_superhero': specific_superhero
     }
@@ -50,6 +50,6 @@ def create(request):
         return render(request, 'superheroesapp/create.html')
 
 def delete(superhero_id):
-    delete_superhero = Superhero.objects.filter(pk=superhero_id)
+    delete_superhero = Superhero.objects.get(pk=superhero_id)
     Superhero.delete(delete_superhero)
     return HttpResponseRedirect(reverse('superheroesapp:index'))
