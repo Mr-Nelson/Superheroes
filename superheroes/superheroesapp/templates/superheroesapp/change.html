@@ -20,7 +20,7 @@
     <title>Change {{superhero.name}}</title>
 </head>
 <body>
-  <form action="{% url 'superheroes:change' %}" method="post">
+  <form action="{% url 'superheroesapp:change' specific_superhero.id %}" method="post">
     {% csrf_token %}
     Change Name:<input type="text" name="name" id="name"><br>
     Change Alter Ego:<input type="text" name="alter_ego" id="alter_ego"><br>

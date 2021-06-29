@@ -11,16 +11,15 @@
     <title>{{specific_superhero.name}}</title>
 </head>
 <body>
+            <h1>{{specific_superhero.name}} Details</h1>
     <ul>
         {% if specific_superhero %}
-        <h1>{{specific_superhero.name}} Details</h1>
         <li><h2>{{specific_superhero.alter_ego}}</h2></li>
-        <li><h2>{{superhero.primary_ability}}</h2></li>
-        <li><h2>{{superhero.secondary_ability}}</h2></li>
-        <li><h2>{{superhero.catchphrase}}</h2></li>
-
+        <li><h2>{{specific_superhero.primary_ability}}</h2></li>
+        <li><h2>{{specific_superhero.secondary_ability}}</h2></li>
+        <li><h2>{{specific_superhero.catchphrase}}</h2></li>
         {% endif %}
-        <a href="{% url 'superheroesapp:index' %}">Back to Superheroes</a>
     </ul>
+        <a href="{% url 'superheroesapp:index' %}">Back to Superheroes</a>
 </body>
 </html>

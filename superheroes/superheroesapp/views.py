@@ -32,9 +32,9 @@ def change(request, superhero_id):
         change_catchphrase = request.POST.get('change_catchphrase')
         superhero_id = Superhero(name=change_name, alter_ego=change_alter_ego, primary_ability=change_primary_ability, secondary_ability=change_secondary_ability, catchphrase=change_catchphrase)
         superhero_id.save()
-        return HttpResponseRedirect(reverse('superheroesapp:detail'))
+        return HttpResponseRedirect(reverse('superheroesapp:detail', context))
     else:
-        return render(request, 'superheroes/change.html', context)
+        return render(request, 'superheroesapp/change.html', context)
 
 def create(request):
     if request.method == 'POST':
@@ -50,5 +50,6 @@ def create(request):
         return render(request, 'superheroesapp/create.html')
 
 def delete(superhero_id):
-    superhero_id.delete()
+    delete_superhero = Superhero.objects.filter(pk=superhero_id)
+    Superhero.delete(delete_superhero)
     return HttpResponseRedirect(reverse('superheroesapp:index'))
