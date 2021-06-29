@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{specific_superhero.name}}</title>
+</head>
+<body>
+    <ul>
+        {% if specific_superhero %}
+        <h1>{{specific_superhero.name}} Details</h1>
+        <li><h2>{{specific_superhero.alter_ego}}</h2></li>
+        <li><h2>{{superhero.primary_ability}}</h2></li>
+        <li><h2>{{superhero.secondary_ability}}</h2></li>
+        <li><h2>{{superhero.catchphrase}}</h2></li>
+        {% endif %}
+        <button type="button" onclick="{% url 'superheroesapp:index' %}">Back to Superheroes</button>
+    </ul>
+</body>
+</html>

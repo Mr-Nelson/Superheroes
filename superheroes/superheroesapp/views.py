@@ -13,11 +13,11 @@ def index(request):
     return render(request, 'superheroesapp/index.html', context)
 
 def detail(request, superhero_id):
-    specific_superhero = Superhero.objects.filter(superhero_id)
+    specific_superhero = Superhero.objects.filter(pk=superhero_id)
     context = {
         'specific_superhero': specific_superhero
     }
-    return render(request, 'superheroesapp/index.html', context)
+    return render(request, 'superheroesapp/detail.html', context)
 
 def create(request):
     if request.method == 'POST':
