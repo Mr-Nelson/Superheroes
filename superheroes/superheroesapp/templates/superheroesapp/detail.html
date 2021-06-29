@@ -15,8 +15,9 @@
         <li><h2>{{superhero.primary_ability}}</h2></li>
         <li><h2>{{superhero.secondary_ability}}</h2></li>
         <li><h2>{{superhero.catchphrase}}</h2></li>
+
         {% endif %}
-        <button type="button" onclick="{% url 'superheroesapp:index' %}">Back to Superheroes</button>
+        <a href="{% url 'superheroesapp:index' %}">Back to Superheroes</a>
     </ul>
 </body>
 </html>
