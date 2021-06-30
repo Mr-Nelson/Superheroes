@@ -26,12 +26,39 @@ def change(request, superhero_id):
     }
     if request.method == 'POST':
         change_name = request.POST.get('change_name')
+        if change_name == '':
+            return change_name
+        else:
+            return specific_superhero.name
+    superhero_id.save()
+    if request.method == 'POST':
         change_alter_ego = request.POST.get('change_alter_ego')
+        if change_alter_ego == '':
+            return change_alter_ego
+        else:
+            return specific_superhero.alter_ego
+    superhero_id.save()
+    if request.method == 'POST':
         change_primary_ability = request.POST.get('change_primary_ability')
+        if change_primary_ability == '':
+            return change_primary_ability
+        else:
+            return specific_superhero.primary_ability
+    superhero_id.save()
+    if request.method == 'POST':
         change_secondary_ability = request.POST.get('change_secondary_ability')
+        if change_secondary_ability == '':
+            return change_secondary_ability
+        else:
+            return specific_superhero.secondary_ability
+    superhero_id.save()
+    if request.method == 'POST':
         change_catchphrase = request.POST.get('change_catchphrase')
-        superhero_id = Superhero(name=change_name, alter_ego=change_alter_ego, primary_ability=change_primary_ability, secondary_ability=change_secondary_ability, catchphrase=change_catchphrase)
-        superhero_id.save()
+        if change_catchphrase == '':
+            return change_catchphrase
+        else:
+            return specific_superhero.catchphrase
+    superhero_id.save()
         return HttpResponseRedirect(reverse('superheroesapp:detail', context))
     else:
         return render(request, 'superheroesapp/change.html', context)
@@ -51,5 +78,5 @@ def create(request):
 
 def delete(superhero_id):
     delete_superhero = Superhero.objects.get(pk=superhero_id)
-    Superhero.delete(delete_superhero)
+    delete_superhero.delete()
     return HttpResponseRedirect(reverse('superheroesapp:index'))
